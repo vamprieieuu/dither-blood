@@ -28,7 +28,7 @@ The TypeScript catalog contains 49 algorithm entries. The 15 diffusion entries a
 - src/types.ts defines a Preset interface, but that alone is not a preset collection.
 
 ## Concrete code-review findings
-1. **Color-blend channel defect:** core/dither.cpp apply_color_blend() interpolates the green output using qR where the green quantized channel qG should be used. This is a likely visible green-channel color contamination.
+1. **Color-blend channel defect — fixed:** core/dither.cpp apply_color_blend() used qR for the green output. Patched the source repository main branch to use qG (commit 5ab4569a7cfda58fdd054dd628dde18a1e81826c). This one-line fix is committed; a full AE host render regression is still pending.
 2. **Randomness parity gap:** src/engine/processor.ts contains Math.random() calls for noise/coverage; these are not reproducible from a seed and can make browser previews differ between runs. Replace with a per-frame seeded PRNG if deterministic parity is required.
 3. **Pseudo-blue-noise naming:** the core helper called blue_noise_threshold() is a hash-plus-coordinate decorrelation function, not evidence of a precomputed blue-noise rank tile. Treat it as pseudo-blue-noise until spectral/visual validation.
 4. **Frame-rate assumption:** FrameCtx::frame() converts time to frame index using a fixed 30 fps. This can desynchronize animated noise at other compositions' frame rates; pass the host frame/time scale instead.

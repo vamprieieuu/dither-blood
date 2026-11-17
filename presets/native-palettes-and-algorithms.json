@@ -1,0 +1,339 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "vamprieieuu/Dithering_MAJEED_build_ready",
+  "sourceFile": "src/engine/ditherEngine.ts",
+  "palettes": [
+    {
+      "id": 1,
+      "name": "Preserve Original Colors",
+      "kind": "preserve-original",
+      "colors": [
+        "#000000",
+        "#FFFFFF"
+      ],
+      "note": "Mode sentinel; RGB channels are thresholded from source, not a fixed palette."
+    },
+    {
+      "id": 2,
+      "name": "Monochrome (B&W)",
+      "kind": "fixed-palette",
+      "colors": [
+        "#000000",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Strong Green (Phosphor / Matrix)",
+      "kind": "fixed-palette",
+      "colors": [
+        "#050D05",
+        "#0D5920",
+        "#00E04D",
+        "#B3FF80"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Volcanic / Lava",
+      "kind": "fixed-palette",
+      "colors": [
+        "#12080F",
+        "#991414",
+        "#FA700F",
+        "#FFF087"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Strong Red (Cyber Abyss)",
+      "kind": "fixed-palette",
+      "colors": [
+        "#0A0005",
+        "#8C0A29",
+        "#FF0529",
+        "#FFE0E0"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Game Boy Classic",
+      "kind": "fixed-palette",
+      "colors": [
+        "#0F380F",
+        "#306130",
+        "#8CAB0F",
+        "#9CBD0F"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Cyberpunk Neon",
+      "kind": "fixed-palette",
+      "colors": [
+        "#050A1F",
+        "#BF0D80",
+        "#00EBE0",
+        "#FAFA99"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Amber CRT",
+      "kind": "fixed-palette",
+      "colors": [
+        "#1A0A03",
+        "#803800",
+        "#E67A1A",
+        "#FFDB66"
+      ]
+    }
+  ],
+  "algorithmCatalog": [
+    {
+      "id": 0,
+      "name": "Floyd-Steinberg",
+      "category": "DIFFUSION"
+    },
+    {
+      "id": 1,
+      "name": "Floyd-Steinberg Serpentine",
+      "category": "DIFFUSION"
+    },
+    {
+      "id": 2,
+      "name": "Jarvis-Judice-Ninke",
+      "category": "DIFFUSION"
+    },
+    {
+      "id": 3,
+      "name": "Stucki",
+      "category": "DIFFUSION"
+    },
+    {
+      "id": 4,
+      "name": "Atkinson",
+      "category": "DIFFUSION"
+    },
+    {
+      "id": 5,
+      "name": "Burkes",
+      "category": "DIFFUSION"
+    },
+    {
+      "id": 6,
+      "name": "Sierra",
+      "category": "SIERRA"
+    },
+    {
+      "id": 7,
+      "name": "Sierra Two Row",
+      "category": "SIERRA"
+    },
+    {
+      "id": 8,
+      "name": "Sierra Lite",
+      "category": "SIERRA"
+    },
+    {
+      "id": 9,
+      "name": "Fan",
+      "category": "DIFFUSION"
+    },
+    {
+      "id": 10,
+      "name": "Shiau-Fan",
+      "category": "DIFFUSION"
+    },
+    {
+      "id": 11,
+      "name": "Skip Neighbours",
+      "category": "SKIP NEIGHBOURS"
+    },
+    {
+      "id": 12,
+      "name": "Skip1 Neighbours",
+      "category": "SKIP NEIGHBOURS"
+    },
+    {
+      "id": 13,
+      "name": "Skip2 Neighbours",
+      "category": "SKIP NEIGHBOURS"
+    },
+    {
+      "id": 14,
+      "name": "Xerox Grain",
+      "category": "DIFFUSION"
+    },
+    {
+      "id": 15,
+      "name": "Bayer 2x2",
+      "category": "BAYER"
+    },
+    {
+      "id": 16,
+      "name": "Bayer 4x4",
+      "category": "BAYER"
+    },
+    {
+      "id": 17,
+      "name": "Bayer 8x8",
+      "category": "BAYER"
+    },
+    {
+      "id": 18,
+      "name": "Bayer 16x16",
+      "category": "BAYER"
+    },
+    {
+      "id": 19,
+      "name": "Blue Noise",
+      "category": "OTHER"
+    },
+    {
+      "id": 20,
+      "name": "Interleaved Gradient Noise",
+      "category": "OTHER"
+    },
+    {
+      "id": 21,
+      "name": "White Noise",
+      "category": "OTHER"
+    },
+    {
+      "id": 22,
+      "name": "Halftone 0°",
+      "category": "HALFTONE"
+    },
+    {
+      "id": 23,
+      "name": "Halftone 22.5°",
+      "category": "HALFTONE"
+    },
+    {
+      "id": 24,
+      "name": "Halftone 45°",
+      "category": "HALFTONE"
+    },
+    {
+      "id": 25,
+      "name": "Matrix",
+      "category": "PATTERN"
+    },
+    {
+      "id": 26,
+      "name": "Square Halftone",
+      "category": "HALFTONE"
+    },
+    {
+      "id": 27,
+      "name": "Mosaic Halftone",
+      "category": "MOSAIC"
+    },
+    {
+      "id": 28,
+      "name": "Rekt Block",
+      "category": "MOSAIC"
+    },
+    {
+      "id": 29,
+      "name": "Row Modulation",
+      "category": "MODULATION"
+    },
+    {
+      "id": 30,
+      "name": "Medium Modulation",
+      "category": "MODULATION"
+    },
+    {
+      "id": 31,
+      "name": "Heavy Modulation",
+      "category": "MODULATION"
+    },
+    {
+      "id": 32,
+      "name": "Column Modulation",
+      "category": "MODULATION"
+    },
+    {
+      "id": 33,
+      "name": "Tilt (+45°)",
+      "category": "PATTERN"
+    },
+    {
+      "id": 34,
+      "name": "Bitslash (-45°)",
+      "category": "PATTERN"
+    },
+    {
+      "id": 35,
+      "name": "Variable Hatch",
+      "category": "PATTERN"
+    },
+    {
+      "id": 36,
+      "name": "Grid Screen",
+      "category": "PATTERN"
+    },
+    {
+      "id": 37,
+      "name": "Cyberpunk Grid",
+      "category": "PATTERN"
+    },
+    {
+      "id": 38,
+      "name": "Cross Square",
+      "category": "PATTERN"
+    },
+    {
+      "id": 39,
+      "name": "Diamond Halftone",
+      "category": "PATTERN"
+    },
+    {
+      "id": 40,
+      "name": "Star Screen",
+      "category": "PATTERN"
+    },
+    {
+      "id": 41,
+      "name": "Bytewav",
+      "category": "MODULATION"
+    },
+    {
+      "id": 42,
+      "name": "Z-Modulation",
+      "category": "MODULATION"
+    },
+    {
+      "id": 43,
+      "name": "Circuit",
+      "category": "PATTERN"
+    },
+    {
+      "id": 44,
+      "name": "Vertical Stitch",
+      "category": "PATTERN"
+    },
+    {
+      "id": 45,
+      "name": "Horizontal Stitch",
+      "category": "PATTERN"
+    },
+    {
+      "id": 46,
+      "name": "Clock Screen",
+      "category": "PATTERN"
+    },
+    {
+      "id": 47,
+      "name": "Bi-thread",
+      "category": "PATTERN"
+    },
+    {
+      "id": 48,
+      "name": "Knit Screen",
+      "category": "PATTERN"
+    }
+  ]
+}
